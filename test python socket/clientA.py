@@ -13,13 +13,16 @@ clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Connect to the server
 
-clientSocket.connect(("127.0.0.1",9090))
+clientSocket.connect(("192.168.1.29",5456))
 
  
 
 # Send data to server
 
-data = "Hello Server"
+truc1 = 14
+player_name = "Mathys"
+
+data = player_name+" "+str(truc1)
 
 clientSocket.send(data.encode())
 
@@ -28,9 +31,8 @@ clientSocket.send(data.encode())
 # Receive data from server
 
 dataFromServer = clientSocket.recv(1024)
+print(dataFromServer.decode())
 
  
 
 # Print to the console
-
-print(dataFromServer.decode())
